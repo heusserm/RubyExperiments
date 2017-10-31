@@ -1,1 +1,1 @@
-dededededededede
+dededededededede alert("hello world!"); <script>alert('boo');</script>
