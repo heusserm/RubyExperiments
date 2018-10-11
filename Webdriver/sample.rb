@@ -35,8 +35,14 @@ class SampleTest < Test::Unit::TestCase
 
       assert_equal(found, false)
 
+     #Sleep is only here so you can watch it run
+     #For a real test remove it. Use a tool like 
+     #sauce labs to make a movie if you'd like.
+     #
      sleep(3)
-     #...Until you press tab
+     
+     
+     #Now press tab, and an input has focus
      @driver.action.send_keys(:tab).perform
 
      element = @driver.find_element :css, 'input:focus'
