@@ -1,25 +1,51 @@
 require "selenium-webdriver"
-
-options = Selenium::WebDriver::Chrome::Options.new
-options.add_argument('--ignore-certificate-errors')
-options.add_argument('--disable-popup-blocking')
-options.add_argument('--disable-translate')
-
-#Only tested on mac
-directory = File.expand_path File.dirname(__FILE__)
-specific_filename = "file://" + directory + "/sample.html"
-
-driver = Selenium::WebDriver.for :chrome, options: options
+require 'test/unit'
 
 
+class SampleTest < Test::Unit::TestCase 
 
-#Change this to your location on your harddrive
-driver.navigate.to specific_filename
-sleep(10)
+    def setup
+      options = Selenium::WebDriver::Chrome::Options.new
+      options.add_argument('--ignore-certificate-errors')
+      options.add_argument('--disable-popup-blocking')
+      options.add_argument('--disable-translate')
+      @driver = Selenium::WebDriver.for :chrome, options: options
+   end
 
-element = driver.find_element :css, 'div:contains("Click here")'
+   def teardown
+      @driver.quit
+   end
+
+   def test_css_focus
+      
+      #Only tested on mac - finds sample.html in the current working directory
+      directory = File.expand_path File.dirname(__FILE__)
+      specific_filename = "file://" + directory + "/sample.html"
+      @driver.navigate.to specific_filename
 
 
-puts driver.title
+     #No element has focus
+     found = false
+     begin
+       element = @driver.find_element :css, 'input:focus'
+       found = true
+     rescue Selenium::WebDriver::Error::NoSuchElementError
+       found = false
+      end
 
-driver.quit
+      assert_equal(found, false)
+
+     sleep(3)
+     #...Until you press tab
+     @driver.action.send_keys(:tab).perform
+
+     element = @driver.find_element :css, 'input:focus'
+     sleep(3)
+
+     element.send_keys "Hello WebDriver!"
+     assert_equal(element.attribute('value'),"Hello WebDriver!")
+
+     sleep(3)
+   end
+
+end
