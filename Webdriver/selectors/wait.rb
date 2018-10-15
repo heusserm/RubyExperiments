@@ -23,10 +23,15 @@ class SampleTest < Test::Unit::TestCase
       specific_filename = "file://" + directory + "/sample.html"
       @driver.navigate.to specific_filename
 
-
+     #Our first XPATH example. BOO ...
      element = @driver.find_element :xpath, "//h2[text() = 'Sample Text']"
      assert_equal(element.attribute('innerText'),"Sample Text")
 
+
+     #Our second example, which is CSS. YAY ...
+     element = @driver.find_element :css, "h2[ID='First']"
+     assert_equal(element.attribute('innerText'),"Sample Text")
+     
      sleep(3)
    end
 
