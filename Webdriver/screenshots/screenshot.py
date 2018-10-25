@@ -4,8 +4,9 @@
 #Demonstrates how to take a screenshot in python
 #Tested in Mac/Chrome
 
-#Mac OS Sierra (10.12.6) includes 2.7.1. As of Oct 25, 2019, that works with the current version
-#of selenium. To run selenium webdriver 3.14, you'll need to install pip, the python installer,
+#Mac OS Sierra (10.12.6) includes python 2.7.1. 
+#As of Oct 25, 2018, that works with the current version of selenium-webdriver. 
+#To run selenium webdriver 3.14, you'll need to install pip, the python installer,
 #then pip install selenium, then download and install a browser-driver, in this example 
 #chromedriver, and place it in the operating system's path. To get the 
 #
