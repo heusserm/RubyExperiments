@@ -34,7 +34,6 @@ directory = os.path.dirname(os.path.realpath(__file__));
 specific_filename = "file://" + directory + "/sample.html";
 driver.get(specific_filename);
 
-#Sleep is for educational purposes only
 driver.save_screenshot("screenshot_python.png");
 waitforit = raw_input("Press ENTER to continue ...");
 driver.quit()
