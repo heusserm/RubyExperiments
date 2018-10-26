@@ -28,7 +28,7 @@ import time
 from selenium import webdriver
 import os
 
-driver = webdriver.Chrome();  # Optional argument, if not specified will search path.
+driver = webdriver.Chrome();  
 
 directory = os.path.dirname(os.path.realpath(__file__));
 specific_filename = "file://" + directory + "/sample.html";
