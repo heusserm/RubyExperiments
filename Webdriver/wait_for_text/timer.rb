@@ -41,7 +41,7 @@ class SampleTest < Test::Unit::TestCase
      return source.include? expected_content;
    end
 
-   def test_css_focus
+   def test_hardcoded_wait_deprecated
       
       #Only tested on mac - finds sample.html in the current working directory
       directory = File.expand_path File.dirname(__FILE__)
