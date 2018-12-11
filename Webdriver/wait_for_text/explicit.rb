@@ -23,11 +23,9 @@ class SampleTest < Test::Unit::TestCase
       directory = File.expand_path File.dirname(__FILE__)
       specific_filename = "file://" + directory + "/sample.html"
       @driver.navigate.to specific_filename
-
-
+     
      #And now we'll do the text for the HREF to appear
      wait = Selenium::WebDriver::Wait.new(:timeout => 15) # seconds
-     element = nil;
      begin
            element = wait.until { @driver.find_element(:id => "truth") }
      ensure
