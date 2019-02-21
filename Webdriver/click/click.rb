@@ -23,6 +23,7 @@ class SampleTest < Test::Unit::TestCase
       specific_filename = "file://" + directory + "/sample.html"
       @driver.navigate.to specific_filename
 
+
       for i in 1..10 do
            id = "submitter"+i.to_s();
            css = "input[id='" + id + "']";
@@ -32,7 +33,6 @@ class SampleTest < Test::Unit::TestCase
            sleep(1);
       end
 
-     sleep(3);
      #If we get this far we are okay
      assert(true);
    end
