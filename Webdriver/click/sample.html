@@ -1,0 +1,46 @@
+<HTML>
+<TITLE>TEST SCREEN</TITLE>
+
+<script>
+
+var i = 1;
+function printme() {
+  doc = document.getElementById("printmediv");
+  txt = document.createTextNode("Clicknumber " + i + " ");
+  doc.appendChild(txt);
+  doc.appendChild(document.createElement("br"));
+  i=i+1;
+
+}
+
+</script>
+
+<BODY>
+
+<FORM>
+  <H2 ID="First">Sample Text</H2>
+  <BR/>
+  This is a test
+  <Br/>
+  What is your name? <input id="unpredictable" type="text"/><BR/> 
+  What is your quest? <input id="also_unpredictable" type="text"/><BR/>
+  <div>Click here friend 
+      <input type="button" value="yoyoyo" id="yoyoyo"/>
+      <BR/>
+      <input type="submit" value="Submit1" id="submitter1" onclick="printme(); return false;" />
+      <input type="submit" value="Submit2" id="submitter2" onclick="printme(); return false;"/>
+      <input type="submit" value="Submit3" id="submitter3" onclick="printme(); return false;" />
+      <input type="submit" value="Submit4" id="submitter4" onclick="printme(); return false;" />
+      <input type="submit" value="Submit5" id="submitter5" onclick="printme(); return false;" />
+      <input type="submit" value="Submit6" id="submitter6" onclick="printme(); return false;" />
+      <input type="submit" value="Submit7" id="submitter7" onclick="printme(); return false;" />
+      <input type="submit" value="Submit8" id="submitter8" onclick="printme(); return false;" />
+      <input type="submit" value="Submit9" id="submitter9" onclick="printme(); return false;" />
+  <BR/>
+  <BR/>
+  </div>
+  <H2>Simple Text</H2>
+  <div id="printmediv"></div>
+  </FORM>
+  <BODY>
+</HTML>
